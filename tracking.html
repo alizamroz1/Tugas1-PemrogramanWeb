@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracking Pengiriman - SITTA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header class="navbar">
-        <div class="navbar-brand">
-            Aplikasi SITTA
-        </div>
-        <nav class="navbar-nav">
-            <a href="stok.html">Informasi Bahan Ajar</a>
-            <a href="tracking.html">Tracking Pengiriman</a>
-            <div class="dropdown">
-                <button class="dropbtn">Laporan</button>
-                <div class="dropdown-content">
-                    <a href="#">Monitoring Progress DO Bahan Ajar</a>
-                    <a href="#">Rekap Bahan Ajar</a>
-                    <a href="#">Histori Transaksi Bahan Ajar</a>
-                </div>
+    <a href="dashboard.html" class="navbar-brand">
+        Aplikasi SITTA
+    </a>
+    <nav class="navbar-nav" id="navbarLinks">
+        <a href="stok.html"><i class="fa-solid fa-boxes-stacked"></i> Informasi Bahan Ajar</a>
+        <a href="tracking.html"><i class="fa-solid fa-truck-fast"></i> Tracking Pengiriman</a>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fa-solid fa-chart-line"></i> Laporan</button>
+            <div class="dropdown-content">
+                <a href="#">Monitoring Progress DO</a>
+                <a href="#">Rekap Bahan Ajar</a>
+                <a href="#">Histori Transaksi</a>
             </div>
-            <a href="#" id="logoutButton">Logout</a>
-        </nav>
-    </header>
+        </div>
+        <a href="#" id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+    <a href="javascript:void(0);" class="burger-menu" id="burgerIcon">
+        &#9776;
+    </a>
+</header>
 
     <main class="container">
         <h2>Lacak Pengiriman Bahan Ajar</h2>
@@ -34,6 +38,10 @@
             <form id="trackingForm">
                 <input type="text" id="doNumber" placeholder="Contoh: 2023001234" required>
                 <button type="submit" class="btn-search">Cari</button>
+
+<button type="submit" class="btn-search">
+    <i class="fa-solid fa-magnifying-glass"></i> Cari
+</button>
             </form>
         </div>
 
