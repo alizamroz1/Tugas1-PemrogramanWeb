@@ -558,10 +558,19 @@ body {
     font-weight: 700;
 }
 
-.welcome-card p {
+/* Menggunakan selector yang lebih spesifik untuk teks di welcome card */
+.welcome-card .welcome-text-content p {
+    color: white; /* Memaksa warna paragraf menjadi putih */
     margin: 5px 0 0 0;
     font-size: 1.1rem;
     opacity: 0.9;
+}
+
+/* Mengatur juga warna nama pengguna (tag <strong>) agar pasti putih */
+.welcome-card .welcome-text-content p strong {
+    color: white;
+    opacity: 1; /* Dibuat tidak transparan agar nama lebih jelas */
+    font-weight: 600;
 }
 
 .welcome-icon i {
@@ -685,4 +694,20 @@ body {
     color: white; /* Jadikan warna teks putih */
     opacity: 0.8; /* Beri sedikit transparansi agar tidak terlalu mencolok */
     margin: 5px 0 0 0; /* Atur jaraknya dari teks Nomor DO */
+}
+
+/* Beri navbar z-index yang tinggi agar selalu di atas */
+.navbar {
+    position: relative; 
+    justify-content: space-between;
+    z-index: 1000; /* <-- TAMBAHKAN INI */
+    /* ...properti lainnya... */
+}
+
+/* Beri ikon tangan z-index lebih rendah */
+.welcome-icon i {
+    font-size: 4rem;
+    opacity: 0.5;
+    transform: rotate(15deg);
+    z-index: 1; /* <-- TAMBAHKAN INI */
 }
