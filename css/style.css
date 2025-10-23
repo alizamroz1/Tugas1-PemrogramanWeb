@@ -250,7 +250,7 @@ body {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .result-header {
@@ -680,3 +680,9 @@ body {
     border: 3px solid #f8f9fa; /* Beri border agar lebih menonjol */
 }
 
+/* Mengubah warna teks 'Nama Mahasiswa' di header hasil tracking */
+.result-header p {
+    color: white; /* Jadikan warna teks putih */
+    opacity: 0.8; /* Beri sedikit transparansi agar tidak terlalu mencolok */
+    margin: 5px 0 0 0; /* Atur jaraknya dari teks Nomor DO */
+}
