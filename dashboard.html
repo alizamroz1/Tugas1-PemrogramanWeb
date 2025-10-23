@@ -3,32 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Dashboard - SITTA</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="navbar-brand">
-            Aplikasi SITTA
-        </div>
-        <nav class="navbar-nav">
-            <a href="stok.html">Informasi Bahan Ajar</a>
-            <a href="tracking.html">Tracking Pengiriman</a>
-            <div class="dropdown">
-                <button class="dropbtn">Laporan</button>
-                <div class="dropdown-content">
-                    <a href="#">Monitoring Progress DO Bahan Ajar</a>
-                    <a href="#">Rekap Bahan Ajar</a>
-                    <a href="#">Histori Transaksi Bahan Ajar</a>
-                </div>
+<header class="navbar">
+    <a href="dashboard.html" class="navbar-brand">
+        Aplikasi SITTA
+    </a>
+    
+    <nav class="navbar-nav" id="navbarLinks">
+        <a href="stok.html"><i class="fa-solid fa-boxes-stacked"></i> Informasi Bahan Ajar</a>
+        <a href="tracking.html"><i class="fa-solid fa-truck-fast"></i> Tracking Pengiriman</a>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fa-solid fa-chart-line"></i> Laporan</button>
+            <div class="dropdown-content">
+                <a href="#">Monitoring Progress DO</a>
+                <a href="#">Rekap Bahan Ajar</a>
+                <a href="#">Histori Transaksi</a>
             </div>
-            <a href="#" id="logoutButton">Logout</a>
-        </nav>
-    </header>
+        </div>
+        <a href="#" id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+    <a href="javascript:void(0);" class="burger-menu" id="burgerIcon">
+        &#9776;
+    </a>
+</header>
 
-    <main class="container">
-        <h1 id="greeting"></h1>
-        <p>Selamat datang, <strong id="userName"></strong>. Gunakan menu navigasi di atas untuk mengelola data.</p>
+   <main class="container">
+    <div class="welcome-card">
+        <div class="welcome-text-content">
+            <h1 id="greeting"></h1>
+            <p>Selamat datang kembali, <strong id="userName"></strong>!</p>
+        </div>
+        <div class="welcome-icon">
+            <i class="fa-solid fa-hands-clapping"></i>
+        </div>
+    </div>
+    
     </main>
     
     <script src="js/script.js"></script>
