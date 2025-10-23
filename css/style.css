@@ -6,7 +6,6 @@ body {
     margin: 0;
     background-color: #ffffff;
     color: #333;
-    overflow: hidden; /* Mencegah scrollbar muncul karena elemen absolut */
 }
 
 /* =================================
@@ -37,13 +36,28 @@ body {
     z-index: 2; /* Pastikan form di atas wave */
 }
 
-/* Kolom Kanan (Gambar) */
+/* Kolom Kanan (Animasi) - GANTI ATURAN LAMA DENGAN INI */
 .login-image-side {
     flex-basis: 50%;
-    background-image: url('../img/team.lottie'); /* GANTI DENGAN URL GAMBAR ANDA */
-    background-color: rgba(253, 249, 244);
-    background-size: cover;
-    background-position: center;
+    position: relative; 
+    overflow: hidden;   
+    z-index: 1;         
+
+    /* Hapus background-image */
+    /* background-image: url('...'); */ 
+
+    /* Tambahkan ini untuk menengahkan animasi */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px; 
+    background-color: #f8f9fa; /* Opsional: warna latar jika animasi tidak penuh */
+}
+/* Wadah Lottie - TAMBAHKAN INI DI AKHIR FILE */
+#lottie-container {
+    width: 100%;
+    max-width: 500px; /* Atur ukuran maksimum animasi sesuai selera */
+    z-index: 2; 
 }
 
 /* =================================
@@ -89,7 +103,7 @@ body {
 }
 
 .vertical-wave-divider .shape-fill {
-    fill: rgb(253, 249, 244); /* Kunci: Ganti warna merah menjadi putih */
+    fill: #f8f9fa; /* Kunci: Ganti warna merah menjadi putih */
 }
 
 /* Pastikan kolom kanan tidak tertutup */
@@ -182,7 +196,9 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: #007bff;
+    
+    
 }
 
 .dropdown:hover .dropdown-content {
@@ -404,3 +420,263 @@ body {
     font-weight: 600;
     font-size: 0.9em;
 }
+
+/* =================================
+   RESPONSIVE UNTUK TAMPILAN HP
+   ================================= */
+@media (max-width: 768px) {
+
+    /* 1. Sembunyikan kolom kanan (animasi) dan divider tengah */
+    .login-image-side,
+    .vertical-wave-divider {
+        display: none;
+    }
+
+    /* 2. Jadikan kolom kiri (form) memenuhi seluruh layar */
+    .login-content-side {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    /* 3. (Opsional) Sesuaikan posisi logo agar tidak terlalu ke pojok */
+    .logo-container {
+        top: 20px;
+        left: 20px;
+    }
+
+    /* 4. (Opsional) Beri sedikit jarak pada form agar tidak menempel di tepi layar */
+    .login-form-wrapper {
+        padding: 0 15px;
+    }
+}
+
+/* ===================================================
+   KODE LAMA UNTUK RESPONSIVE LOGIN (JIKA ADA, BIARKAN)
+   =================================================== */
+@media (max-width: 768px) {
+    /* ... (kode untuk halaman login Anda) ... */
+}
+
+
+/* =================================
+   PENGGANTI UNTUK NAVBAR & BURGER MENU
+   ================================= */
+
+/* Atur layout utama header */
+.navbar {
+    position: relative; /* Diperlukan agar menu dropdown muncul di bawah navbar */
+    justify-content: space-between; /* Mendorong brand ke kiri dan burger ke kanan */
+}
+
+/* Sembunyikan link navigasi di awal */
+.navbar-nav {
+    display: none;
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah navbar */
+    right: 0;  /* Muncul dari sisi kanan */
+    left: auto;
+    background-color: #004a9e;
+    flex-direction: column; /* Susun link secara vertikal */
+    width: 250px; /* Beri lebar tetap untuk menu dropdown */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 0 0 0 8px; /* Sudut membulat di kiri bawah */
+}
+
+/* Tampilkan ikon burger secara default */
+.burger-menu {
+    display: block;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+/* Saat menu burger di-klik (class .responsive ditambahkan oleh JS) */
+.navbar-nav.responsive {
+    display: flex; /* Tampilkan menu */
+}
+
+/* Atur link di dalam menu dropdown */
+.navbar-nav.responsive a,
+.navbar-nav.responsive .dropdown {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+/* Atur ulang tampilan submenu dropdown */
+.navbar-nav.responsive .dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.navbar-nav.responsive .dropdown-content {
+    position: static;
+    display: block;
+    background-color: transparent;
+    box-shadow: none;
+    padding-left: 20px;
+}
+.navbar-nav.responsive .dropdown-content a {
+    color: #e0e0e0;
+}
+.navbar-nav.responsive .dropbtn {
+    width: 100%;
+    text-align: left;
+}
+
+/* =================================
+   HIASAN DAN POLES AKHIR
+   ================================= */
+
+/* Ganti warna latar utama agar kartu putih lebih menonjol */
+body {
+    background-color: #f4f6f9;
+}
+
+/* Atur ikon di dalam navbar */
+.navbar-nav a, .dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara ikon dan teks */
+}
+
+/* Kartu Sambutan di Dashboard */
+.welcome-card {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 91, 179, 0.3);
+}
+
+.welcome-card h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.welcome-card p {
+    margin: 5px 0 0 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.welcome-icon i {
+    font-size: 4rem;
+    opacity: 0.5;
+    transform: rotate(15deg);
+}
+
+/* Transisi Halus untuk Tombol */
+.btn, .btn-main, .btn-search, .btn-add {
+    transition: all 0.3s ease;
+}
+
+/* Efek hover yang lebih baik untuk tombol */
+.btn-main:hover, .btn:hover, .btn-search:hover, .btn-add:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Perhalus bayangan di halaman lain */
+.search-container, .result-container {
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+}
+
+/* Aturan tambahan untuk link navbar-brand */
+.navbar a.navbar-brand {
+    color: white; /* Ubah warna teks menjadi putih */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: opacity 0.3s ease;
+}
+
+.navbar a.navbar-brand:hover {
+    opacity: 0.8; /* Beri efek saat kursor melintas */
+}
+
+/* =================================
+   HIASAN BARU UNTUK HALAMAN TRACKING
+   ================================= */
+
+/* Atur ulang container utama di halaman tracking */
+.container h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 5px;
+}
+
+.container p {
+    color: #6c757d;
+    margin-top: 0;
+}
+
+/* Perbarui tampilan search box */
+.search-container {
+    background: #ffffff; /* Pastikan latar belakang putih */
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Bayangan lebih lembut */
+    transition: all 0.3s ease;
+}
+
+.search-container:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.search-container input[type="text"] {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid #e9ecef; /* Border lebih lembut */
+    transition: border-color 0.3s ease;
+}
+
+.search-container input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff; /* Warna border saat aktif */
+}
+
+/* Perbarui tombol "Cari" */
+.btn-search {
+    background: linear-gradient(90deg, #28a745, #218838);
+    font-weight: 500;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Jarak antara ikon dan teks */
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* Perbarui tampilan result container */
+.result-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.result-container p {
+    padding: 10px; /* Beri jarak agar tidak menempel ke tepi */
+}
+
+/* Perbarui tampilan header hasil pencarian */
+.result-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 12px 12px 0 0; /* Sesuaikan sudut */
+}
+
+/* Perbarui tampilan timeline agar lebih modern */
+.timeline::before {
+    background-color: #dee2e6; /* Warna garis lebih lembut */
+}
+
+.timeline-item::before {
+    background-color: #007bff;
+    border: 3px solid #f8f9fa; /* Beri border agar lebih menonjol */
+}
+
